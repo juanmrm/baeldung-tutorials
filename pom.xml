@@ -88,6 +88,7 @@
 
 	<build>
 		<plugins>
+			<!-- goals to help execute system and Java programs -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -96,13 +97,14 @@
 					<executable>maven</executable>
 				</configuration>
 			</plugin>
+			<!-- Configuration for unit testing phase and reports-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven-surefire-plugin.version}</version>
 				<configuration>
-					<forkCount>3</forkCount>
-					<reuseForks>true</reuseForks>
+					<!-- <forkCount>3</forkCount>
+					<reuseForks>true</reuseForks> -->
 					<excludes>
 						<exclude>**/*IntegrationTest.java</exclude>
 						<exclude>**/*IntTest.java</exclude>
@@ -139,7 +141,8 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!-- An extensible cross-language static code analyzer. -->
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>${maven-pmd-plugin.version}</version>
@@ -174,8 +177,8 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
+			</plugin> -->
+			<!-- <plugin>
 				<groupId>org.commonjava.maven.plugins</groupId>
 				<artifactId>directory-maven-plugin</artifactId>
 				<version>${directory-maven-plugin.version}</version>
@@ -195,8 +198,8 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
+			</plugin> -->
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
 				<version>${maven-install-plugin.version}</version>
@@ -217,13 +220,14 @@
 						<phase>validate</phase>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>${maven-war-plugin.version}</version>
 			</plugin>
 		</plugins>
 		<extensions>
+			<!-- https://github.com/vackosar/gitflow-incremental-builder -->
 			<extension>
 				<groupId>com.vackosar.gitflowincrementalbuilder</groupId>
 				<artifactId>gitflow-incremental-builder</artifactId>
@@ -234,7 +238,7 @@
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
-				<plugin>
+				<!-- <plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
 					<version>1.0.0</version>
@@ -282,10 +286,11 @@
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
-				</plugin>
+				</plugin> -->
 			</plugins>
 		</pluginManagement>
 	</build>
+
 
 	<profiles>
 
@@ -1603,6 +1608,7 @@
 
 	<reporting>
 		<plugins>
+			<!-- produces a cross-reference of the project's sources -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
